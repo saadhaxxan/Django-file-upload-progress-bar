@@ -1,6 +1,6 @@
 <div align="center">
 <h1>Django file upload progress bar</h1>
-<img src="screenshot.png" height="200px">
+<img src="screenshot.png">
 </div>
 
 <h4>A django app to demonstrate ajax call on file upload along with the progress bar.<h4>
@@ -20,7 +20,7 @@ python manage.py runserver
 
 ## Integrate into an Existing Application
 
-## Add into installed Apps
+### 1. Add into installed Apps
 ```
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -32,6 +32,8 @@ INSTALLED_APPS = [
     'uploads',
 ]
 ```
+
+### 2. Copy main.js into static folder
 
 ## Author
 You can get in touch with me on my LinkedIn Profile:
