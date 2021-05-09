@@ -5,6 +5,10 @@ from django.http import JsonResponse
 
 def home_view(request):
     form = UploadForm(request.POST or None, request.FILES or None)
+    if request.is_ajax():
+        if form.is_valid():
+            form.save()
+            return JsonResponse({'message':'success'})
     context = {
         'form': form,
     }
