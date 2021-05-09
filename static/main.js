@@ -25,7 +25,8 @@ input.addEventListener('change', ()=>{
         enctype: 'multipart/form-data',
         data: fd,
         beforeSend: function(){
-            console.log('before')
+            alertBox.innerHTML= ""
+            imageBox.innerHTML = ""
         },
         xhr: function(){
             const xhr = new window.XMLHttpRequest();
@@ -43,16 +44,28 @@ input.addEventListener('change', ()=>{
             })
             cancelBtn.addEventListener('click', ()=>{
                 xhr.abort()
+                setTimeout(()=>{
+                    uploadForm.reset()
+                    progressBox.innerHTML=""
+                    alertBox.innerHTML = ""
+                    cancelBox.classList.add('not-visible')
+                },5000)
                 progressBox.innerHTML = ""
                 cancelBox.classList.add = 'not-visible'
             })
             return xhr
         },
         success: function(response){
-            console.log(response)
+            imageBox.innerHTML = `<img src="${url}" width="300px">`
+            alertBox.innerHTML = `<div class="alert alert-success" role="alert">
+                                    Successfully uploaded the image below
+                                </div>`
+            cancelBox.classList.add('not-visible')
         },
         error: function(error){
-            console.log(error)
+            alertBox.innerHTML = `<div class="alert alert-danger" role="alert">
+                                    Something went wrong
+                                </div>`
         },
         cache: false,
         contentType: false,
