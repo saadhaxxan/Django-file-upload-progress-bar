@@ -1,7 +1,9 @@
 <div align="center">
 <h1>Django file upload progress bar</h1>
-<h2>A django app to demonstrate ajax call on file upload along with the progress bar.<h2>
+<img src="screenshot.png" height="200px">
 </div>
+
+<h4>A django app to demonstrate ajax call on file upload along with the progress bar.<h4>
 
 ## Installation steps
 
