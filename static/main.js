@@ -12,5 +12,30 @@ input.addEventListener('change', ()=>{
     cancelBox.classList.remove('not-visible')
 
     const imageData = input.files[0]
-    console.log(imageData)
+    
+    const fd = new FormData()
+    fd.append('csrfmiddlewaretoken',csrf[0].value)
+    fd.append('image',imageData)
+
+    $.ajax({
+        type:'POST',
+        url: form.action,
+        enctype:'multipart/form-data',
+        data=fd,
+        cache: false,
+        processData:false,
+        contentType:false,
+        beforeSend: function(){
+
+        },
+        xhr: function(){
+
+        },
+        success: function(response){
+
+        },
+        error: function(error){
+
+        }
+    })
 })
